@@ -45,9 +45,9 @@ public class QueueTest {
     tailerEnd3.toEnd();
 
     // when
-    tailerEnd1.readDocument(w -> foundNumbers.put("tailerEnd1", w.read("number").int32()));
-    tailerEnd2.readDocument(w -> foundNumbers.put("tailerEnd2", w.read("number").int32()));
-    tailerEnd3.readDocument(w -> foundNumbers.put("tailerEnd3", w.read("number").int32()));
+    tailerEnd1.readDocument(w -> foundNumbers.put("tailerEnd1", w.read().int32()));
+    tailerEnd2.readDocument(w -> foundNumbers.put("tailerEnd2", w.read().int32()));
+    tailerEnd3.readDocument(w -> foundNumbers.put("tailerEnd3", w.read().int32()));
 
     assertEquals(ImmutableMap.of(
             "tailerEnd1", 999,
