@@ -3,7 +3,7 @@ apply plugin: 'application'
 apply plugin: 'groovy'
 apply plugin: 'com.github.johnrengelman.shadow'
 
-mainClassName = 'com.michaelszymczak.foo.App'
+mainClassName = 'com.michaelszymczak.chroniclequeuetailer.App'
 sourceCompatibility = 1.8
 
 buildscript {

@@ -1,4 +1,4 @@
-package com.michaelszymczak.foo;
+package com.michaelszymczak.chroniclequeuetailer;
 
 import com.google.common.collect.ImmutableMap;
 import net.openhft.chronicle.queue.ChronicleQueue;
@@ -51,6 +51,7 @@ public class QueueTest {
 
     assertEquals(ImmutableMap.of(
             "tailerEnd1", 999,
+            // "tailerEnd2", 999, // Really ?
             "tailerEnd3", 999
     ), foundNumbers);
   }
