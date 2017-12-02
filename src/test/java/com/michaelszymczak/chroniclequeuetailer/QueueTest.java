@@ -51,7 +51,7 @@ public class QueueTest {
 
     assertEquals(ImmutableMap.of(
             "tailerEnd1", 999,
-            // "tailerEnd2", 999, // Really ?
+             "tailerEnd2", 999,
             "tailerEnd3", 999
     ), foundNumbers);
   }
