@@ -13,10 +13,10 @@ public class MyComponent {
     this.someInitialState = someInitialState;
   }
 
-  public double doSth(long startTimeNS) {
-    final double[] data = new double[100];
+  public double priceOf(long input) {
+    final double[] data = new double[1000]; // hint hint!
     for (int i = 0; i < data.length; i++) {
-      data[i] = (double) startTimeNS * i + someInitialState;
+      data[i] = (double) input * i + someInitialState;
     }
 
     return stream(data).summaryStatistics().getAverage();

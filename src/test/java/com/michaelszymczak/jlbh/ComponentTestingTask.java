@@ -25,7 +25,7 @@ public class ComponentTestingTask implements JLBHTask {
 
   @Override
   public void run(long startTimeNS) {
-    componentUnderTest.doSth(startTimeNS);
+    componentUnderTest.priceOf(startTimeNS);
     jlbh.sampleNanos(System.nanoTime() - startTimeNS);
   }
 }

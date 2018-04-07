@@ -14,6 +14,7 @@ import java.time.Duration;
 import static java.time.Duration.ofMillis;
 import static java.time.Duration.ofNanos;
 import static org.hamcrest.Matchers.lessThan;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -22,7 +23,7 @@ import static org.junit.Assert.assertThat;
 public class MyComponentTest {
 
   @Test
-  public void shouldBeResponsive() throws Exception {
+  public void shouldAlwaysQuicklyPerformTheTask() throws Exception {
     // given
     final MyComponent myComponent = componentUnderTest();
     final JLBHResultConsumer results = results();
@@ -34,10 +35,19 @@ public class MyComponentTest {
     // then
     JLBHResult.RunResult latency = results.get().endToEnd().summaryOfLastRun();
     assertThat(String.format("Worst end to end latency was %d microseconds", latency.getWorst().toNanos() / 1000),
-            latency.getWorst(), lessThan(ms(10)));
+            latency.getWorst(), lessThan(ms(10))); // TODO: more strict
     assertThat(String.format("99.9th percentile latency was %d microseconds", latency.getWorst().toNanos() / 1000),
-            latency.get999thPercentile(), lessThan(us(500)));
+            latency.get999thPercentile(), lessThan(us(500))); // TODO: more strict
 
+  }
+
+  @Test
+  public void shouldBeCorrectWhenCalculatingThePrice() throws Exception {
+    MyComponent myComponent = new MyComponent(15.5);
+
+    double result = myComponent.priceOf(1500);
+
+    assertEquals(749265.5, result, 0.0001);
   }
 
   @NotNull
