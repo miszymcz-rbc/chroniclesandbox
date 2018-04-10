@@ -54,30 +54,30 @@ public class MyComponentTest {
             latency.get999thPercentile(), lessThan(us(50)));
   }
 
-  @Test // NOT A UNIT TEST
-  public void shouldNotRequireGC() throws Exception {
-    // given
-    final int iterations = 100_000;
-    long memoryFootprintBefore, memoryFootprint = 0;
-    final MyComponent myComponent = createMyComponent();
-    final double[] results = new double[iterations];
-
-
-    // when
-    for (int i = 0; i < iterations; i++) {
-      memoryFootprintBefore = usedMemoryInBytes();
-      results[i] = myComponent.priceOf(i);
-      memoryFootprint+= usedMemoryInBytes() - memoryFootprintBefore;
-    }
-
-
-    // then
-    final long target = asManyBytesAs(2 * iterations);
-
-    assertTrue(Arrays.stream(results).allMatch(value -> value >= 0));
-    assertThat(memoryFootprint, lessThan(target));
-    assertThat(memoryFootprint, is(not(lessThan(0L))));
-  }
+//  @Test // NOT A UNIT TEST
+//  public void shouldNotRequireGC() throws Exception {
+//    // given
+//    final int iterations = 100_000;
+//    long memoryFootprintBefore, memoryFootprint = 0;
+//    final MyComponent myComponent = createMyComponent();
+//    final double[] results = new double[iterations];
+//
+//
+//    // when
+//    for (int i = 0; i < iterations; i++) {
+//      memoryFootprintBefore = usedMemoryInBytes();
+//      results[i] = myComponent.priceOf(i);
+//      memoryFootprint+= usedMemoryInBytes() - memoryFootprintBefore;
+//    }
+//
+//
+//    // then
+//    final long target = asManyBytesAs(2 * iterations);
+//
+//    assertTrue(Arrays.stream(results).allMatch(value -> value >= 0));
+//    assertThat(memoryFootprint, lessThan(target));
+//    assertThat(memoryFootprint, is(not(lessThan(0L))));
+//  }
 
   @NotNull
   private MyComponent createMyComponent() {

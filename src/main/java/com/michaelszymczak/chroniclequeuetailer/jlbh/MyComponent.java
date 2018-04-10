@@ -21,16 +21,16 @@ public class MyComponent {
       data[i] = (double) input * i + someInitialState;
     }
 
-    return averageOf(data);
+    return gaverageOf(data);
   }
 
 
-  private double averageOf(double[] input) {
-    for (int  i = 0; i < input.length; i++) {
-      sum += input[i];
-    }
-    return sum / input.length;
-  }
+//  private double averageOf(double[] input) {
+//    for (int  i = 0; i < input.length; i++) {
+//      sum += input[i];
+//    }
+//    return sum / input.length;
+//  }
 
   private double gaverageOf(double[] input) {
     return Arrays.stream(input).summaryStatistics().getAverage();
