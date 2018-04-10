@@ -34,25 +34,25 @@ public class MyComponentTest {
 
     assertEquals(749265.5, result, 0.0001);
   }
-
-  @Test // NOT A UNIT TEST
-  public void shouldAlwaysQuicklyPerformTheTask() throws Exception {
-    // given
-    final MyComponent myComponent = createMyComponent();
-    final JLBHResultConsumer results = results();
-    final JLBH jlbh = new JLBH(parametersWhenTesting(myComponent), printStream(), results);
-
-    // when
-    jlbh.start();
-
-    // then
-
-    JLBHResult.RunResult latency = results.get().endToEnd().summaryOfLastRun();
-    assertThat(String.format("Worst end to end latency was %d microseconds", latency.getWorst().toNanos() / 1000),
-            latency.getWorst(), lessThan(ms(1)));
-    assertThat(String.format("99.9th percentile latency was %d microseconds", latency.getWorst().toNanos() / 1000),
-            latency.get999thPercentile(), lessThan(us(50)));
-  }
+//
+//  @Test // NOT A UNIT TEST
+//  public void shouldAlwaysQuicklyPerformTheTask() throws Exception {
+//    // given
+//    final MyComponent myComponent = createMyComponent();
+//    final JLBHResultConsumer results = results();
+//    final JLBH jlbh = new JLBH(parametersWhenTesting(myComponent), printStream(), results);
+//
+//    // when
+//    jlbh.start();
+//
+//    // then
+//
+//    JLBHResult.RunResult latency = results.get().endToEnd().summaryOfLastRun();
+//    assertThat(String.format("Worst end to end latency was %d microseconds", latency.getWorst().toNanos() / 1000),
+//            latency.getWorst(), lessThan(ms(1)));
+//    assertThat(String.format("99.9th percentile latency was %d microseconds", latency.getWorst().toNanos() / 1000),
+//            latency.get999thPercentile(), lessThan(us(50)));
+//  }
 
 //  @Test // NOT A UNIT TEST
 //  public void shouldNotRequireGC() throws Exception {
